@@ -12,3 +12,14 @@ menu = {
 }
 
 order = []
+
+def greet(name):
+  print(f"Welcom to {cafe_name}, {name}!")
+
+
+
+def show_menu(menu):
+  print("---MENU---")
+  for item, price in menu.items():
+    print(f"{item}: ${price:.2f}")
+
