@@ -34,11 +34,10 @@ def show_order(order, menu):
         print(f"{item}: ${menu[item]:.2f}")
     print(f"Items: {len(order)}")
 
-
 def calculate_subtotal(order, menu):
-  subtotal = 0
-  for item in order:
-    subtotal = subtotal + menu[item]
+    subtotal = 0
+    for item in order:
+        subtotal = subtotal + menu[item]
     return subtotal
 
 def get_discount(subtotal, is_member):
