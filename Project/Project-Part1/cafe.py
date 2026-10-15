@@ -16,7 +16,8 @@ order = []
 def greet(name):
   print(f"Welcome to {cafe_name}, {name}!")
 
-
+cafe_name = "Python Café"
+tax_rate = 0.08
 
 def show_menu(menu):
   print("---MENU---")
@@ -28,56 +29,58 @@ def show_order(order, menu):
   if len(order) == 0:
     print("Nothing is ordered.")
   else:
-    print("--- Your order is ---)
-          for item in order:
-    print(f"{item}: ${menu[item]:.2f}")
+    print("--- Your order is ---")
+    for item in order:
+        print(f"{item}: ${menu[item]:.2f}")
     print(f"Items: {len(order)}")
 
 
 def calculate_subtotal(order, menu):
-  subtotal = o
+  subtotal = 0
   for item in order:
     subtotal = subtotal + menu[item]
     return subtotal
 
-
 def get_discount(subtotal, is_member):
-  if is_member and subtotal >= 20:
-    return subtotal * 0.15
-  else:
-    if subtotal >= 10:
-      return subtotal * 0.10
+    if is_member:
+        if subtotal >= 20:
+            return subtotal * 0.15
+        else:
+            if subtotal >= 10:
+                return subtotal * 0.10
+            else:
+                return 0
     else:
-      return 0
-else:
-if subtotal >= 25:
-  return subtotal * 0.5
-else:
-  return 0
+        if subtotal >= 25:
+            return subtotal * 0.05
+        else:
+            return 0
+
+
 
 
 def print_receipt(name, order, menu, is_member):
-  subtotal = calculate_subtotal(order, menu)
-  discount = get_discount(subtotal, is_member)
-  discounted_subtotal = subtotal - discount
-  tax = discounted_subtotal * tax_rate
-  total = discounted_subtotal + tax
+    subtotal = calculate_subtotal(order, menu)
+    discount = get_discount(subtotal, is_member)
+    discounted_subtotal = subtotal - discount
+    tax = discounted_subtotal * tax_rate
+    total = discounted_subtotal + tax
 
-print("==== Python Cafe receipt =====")
-print(f"Customer: {name}")
+    print("===== Python Café RECEIPT =====")
+    print(f"Customer: {name}")
 
-for item in order:
-  print(f"{item}: ${menu[item]:.2f}")
+    for item in order:
+        print(f"{item}: ${menu[item]:.2f}")
 
-print(f"Subtotal: ${subtotal:.2f}")
-print(f"Discount: -${discount:.2f}")
-print(f"Tax: ${tax:.2f}")
-print(f"Total: ${total:.2f}")
+    print(f"Subtotal: ${subtotal:.2f}")
+    print(f"Discount: -${discount:.2f}")
+    print(f"Tax: ${tax:.2f}")
+    print(f"Total: ${total:.2f}")
 
-if not is_member:
-  print(Join our rewards club to save on your next visit!")
+    if not is_member:
+        print("Join our rewards club to save on your next visit!")
 
-print(f"Thanks for visiting, {name}!")
+    print(f"Thanks for visiting, {name}!")
 
 
 
@@ -137,4 +140,4 @@ while True:
             break
 
     else:
-        print("Please choose a number from 1 to 5.")
+                print("Please choose a number from 1 to 5.")
